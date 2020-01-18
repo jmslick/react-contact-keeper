@@ -1,0 +1,12 @@
+dependencies: 
+nodemon, concurrently express, express-validator, jsonwebtoken,
+mongoose, bcrypt
+----------------------------------
+RUN:
+>node server.js (would work, but not start nodemon, so have to keep restarting after save)
+>npm run server (will run it with nodemon enabled.)
+
+Server.js: the entry point to back end.
+----------------------------------
+MONGO
+postadvisor@gmail.com / #Bgiabh1

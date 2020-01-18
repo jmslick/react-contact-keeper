@@ -10,9 +10,23 @@ const User = require('../models/User');
 
 // @route   GET api/auth
 // @desc    Get logged in user
-// @access  Private
-router.get('/', (req, res) => {
-  res.send('Get logged in user');
+// @access  Private: will need token protection
+router.get('/', auth, async (req, res) => {
+  /**
+   * When calling a protected routek, and include second
+   * arg 'auth', it calls the auth function in middleware dir.
+   *
+   * if we send the correct token and are logged in
+   * this request object will have a user object
+   * with logged in users I.D.
+   */
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 // @route   POST api/auth
