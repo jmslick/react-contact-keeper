@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-
 const User = require('../models/User');
 
 // @route    POST api/users
@@ -43,6 +42,7 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
       await user.save();
       // res.send('user ' + user.name + ' saved with password: ' + user.password);
+
       const payload = {
         user: {
           id: user.id
