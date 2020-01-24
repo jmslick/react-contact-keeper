@@ -2,11 +2,50 @@ dependencies:
 nodemon, concurrently express, express-validator, jsonwebtoken,
 mongoose, bcrypt
 ----------------------------------
-RUN:
+RUN 
+server:
 >node server.js (would work, but not start nodemon, so have to keep restarting after save)
 >npm run server (will run it with nodemon enabled.)
+    Server.js: the entry point to back end.
 
-Server.js: the entry point to back end.
+RUN 
+front and back:
+>npm run dev
+dev is defined in contact-keeper/package.json:
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
 ----------------------------------
 MONGO
 postadvisor@gmail.com / #Bgiabh1
+
+----------------------------------
+jsonwebtoken  44  
+to generate a token, have to sign it.
+jwt.sign(payload, config.get('jwtSecret'), options, callback);
+jwtSecret is defined in comfig/default.json:
+  "jwtSecret": "secret"
+The callback should contain the token which
+you then put into the response.
+
+  jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        {
+          expiresIn: 360000
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
+
+TOKENS
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyMzVmYTljODUzMWY0ZjgwN2FiYTNjIn0sImlhdCI6MTU3OTM3NjYzNCwiZXhwIjoxNTc5NDEyNjM0fQ.15UNHZGnFNqSJ9kH7wLethDNY7FS5KDreBadKv2-rWU
+
+Pat Mccann:
+id: 
+    5e278352217ff23b3040e1da
+token:
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyNzgzNTIyMTdmZjIzYjMwNDBlMWRhIn0sImlhdCI6MTU3OTY0NzgyNiwiZXhwIjoxNTc5NjgzODI2fQ.QTtYxV98qTIBkjpiqcfhWWxlYW966Eu1NFxU0g5GSZI
+
+--------------------------
