@@ -46,7 +46,10 @@ const ContactState = props => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   // Add Contact
-
+  const addContact = contact => {
+    contact.id = 1000;
+    dispatch({ type: ADD_CONTACT, payload: contact });
+  };
   // Delete Contact
 
   // set Current contact
@@ -66,7 +69,8 @@ const ContactState = props => {
          * 52.  anything that we want to be able to access from other components
          * including state and actions need to go in here.
          */
-        contacts: state.contacts
+        contacts: state.contacts,
+        addContact
       }}>
       {props.children}
     </ContactContext.Provider>
