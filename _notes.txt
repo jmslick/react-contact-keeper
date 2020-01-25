@@ -39,13 +39,11 @@ you then put into the response.
         }
       );
 
-TOKENS
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyMzVmYTljODUzMWY0ZjgwN2FiYTNjIn0sImlhdCI6MTU3OTM3NjYzNCwiZXhwIjoxNTc5NDEyNjM0fQ.15UNHZGnFNqSJ9kH7wLethDNY7FS5KDreBadKv2-rWU
+COLLECTION
+USERS
+	"name": "bill bob",
+	"email": "billbob@gmail.com",
+	"password": "123456"
 
-Pat Mccann:
-id: 
-    5e278352217ff23b3040e1da
-token:
-    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyNzgzNTIyMTdmZjIzYjMwNDBlMWRhIn0sImlhdCI6MTU3OTY0NzgyNiwiZXhwIjoxNTc5NjgzODI2fQ.QTtYxV98qTIBkjpiqcfhWWxlYW966Eu1NFxU0g5GSZI
-
---------------------------
+    token:
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyYjdhODhiOWNkODM2OGRjNjZiOGIzIn0sImlhdCI6MTU3OTkwNzcyMCwiZXhwIjoxNTc5OTQzNzIwfQ.p8QhktwKrImPIzireKVi-CrW6rgmze8X1ljw2A_i_0U
