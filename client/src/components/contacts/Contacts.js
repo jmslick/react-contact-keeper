@@ -1,16 +1,23 @@
 import React, { Fragment, useContext } from 'react';
 import ContactContext from '../../context/contact/contactContext';
+import ContactItem from './ContactItem';
 
 const Contacts = () => {
-  const contactContext = useContext(contactContext);
+  /**
+   * 52.
+   * contactContext provides access to  methods or actions
+   * associated with the context.
+   */
+  const contactContext = useContext(ContactContext);
 
   const { contacts } = contactContext;
 
   return (
     <Fragment>
-      {contacts.map(contact => {
-        <h3>{contact.name}</h3>;
-      })}
+      {/* passing specific contact item as a prop */}
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
+      ))}
     </Fragment>
   );
 };

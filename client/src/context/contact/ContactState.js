@@ -4,12 +4,16 @@ import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
 
 import {
+  GET_CONTACTS,
   ADD_CONTACT,
   DELETE_CONTACT,
   SET_CURRENT,
+  CLEAR_CURRENT,
   UPDATE_CONTACT,
   FILTER_CONTACTS,
-  CLEAR_FILTER
+  CLEAR_CONTACTS,
+  CLEAR_FILTER,
+  CONTACT_ERROR
 } from '../types';
 
 const ContactState = props => {
@@ -59,7 +63,7 @@ const ContactState = props => {
     <ContactContext.Provider
       value={{
         /**
-         * anything that we want to be able to access from other components
+         * 52.  anything that we want to be able to access from other components
          * including state and actions need to go in here.
          */
         contacts: state.contacts

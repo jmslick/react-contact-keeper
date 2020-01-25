@@ -47,3 +47,21 @@ USERS
 
     token:
     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyYjdhODhiOWNkODM2OGRjNjZiOGIzIn0sImlhdCI6MTU3OTkwNzcyMCwiZXhwIjoxNTc5OTQzNzIwfQ.p8QhktwKrImPIzireKVi-CrW6rgmze8X1ljw2A_i_0U
+
+
+STUPID JS CRAP
+    Bug when defining lambda:
+    Error:  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+   <Fragment>
+      {contacts.map(contact => { // cause: {} not ()
+        <h3>{contact.name}</h3>;  // {} causes auto ; insert
+      })}
+    </Fragment>
+
+    Correct:
+    <Fragment>
+      {contacts.map(contact => (
+        <h3>{contact.name}</h3>
+      ))}
+    </Fragment>
