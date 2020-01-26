@@ -1,5 +1,15 @@
 [
 	{
+		"path": "$ROOTPATH$\\client\\src\\components\\contacts\\ContactForm.js",
+		"bookmarks": [
+			{
+				"line": 49,
+				"column": 8,
+				"label": ""
+			}
+		]
+	},
+	{
 		"path": "$ROOTPATH$\\client\\src\\context\\contact\\ContactState.js",
 		"bookmarks": [
 			{
