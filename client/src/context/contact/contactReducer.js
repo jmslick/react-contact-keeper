@@ -52,6 +52,7 @@ export default (state, action) => {
       };
     case SET_CURRENT:
       return {
+        // return entire contact object in payload
         ...state,
         current: action.payload
       };
