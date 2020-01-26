@@ -35,9 +35,10 @@ export default (state, action) => {
       };
     case DELETE_CONTACT:
       return {
+        // return current state object with contacts minus the one to delete
         ...state,
         contacts: state.contacts.filter(
-          contact => contact._id !== action.payload
+          contact => contact.id !== action.payload
         ),
         loading: false
       };
