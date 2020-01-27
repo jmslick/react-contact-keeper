@@ -7,7 +7,6 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
-
 import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
@@ -15,24 +14,27 @@ import './App.css';
 
 const App = () => {
   return (
-    <ContactState>
-      <Router>
-        <Fragment>
-          <Navbar />
-          <div className='container'>
-            {
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/register' component={Register} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/alerts' component={Alerts} />
-              </Switch>
-            }
-          </div>
-        </Fragment>
-      </Router>
-    </ContactState>
+    <AuthState>
+      {/* exposes access to authstate anywhere in app */}
+      <ContactState>
+        <Router>
+          <Fragment>
+            <Navbar />
+            <div className='container'>
+              {
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/about' component={About} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/alerts' component={Alerts} />
+                </Switch>
+              }
+            </div>
+          </Fragment>
+        </Router>
+      </ContactState>
+    </AuthState>
   );
 };
 
