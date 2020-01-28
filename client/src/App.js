@@ -17,22 +17,26 @@ const App = () => {
     <AuthState>
       {/* exposes access to authstate anywhere in app */}
       <ContactState>
-        <Router>
-          <Fragment>
-            <Navbar />
-            <div className='container'>
-              {
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
-                  <Route exact path='/alerts' component={Alerts} />
-                </Switch>
-              }
-            </div>
-          </Fragment>
-        </Router>
+        {/* without AlertState tag, get error about alertContext undefined */}
+        <AlertState>
+          <Router>
+            <Fragment>
+              <Navbar />
+              <div className='container'>
+                <Alerts />
+                {
+                  <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/login' component={Login} />
+                    <Route exact path='/alerts' component={Alerts} />
+                  </Switch>
+                }
+              </div>
+            </Fragment>
+          </Router>
+        </AlertState>
       </ContactState>
     </AuthState>
   );
