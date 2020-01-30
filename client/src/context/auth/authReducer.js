@@ -20,7 +20,12 @@ export default (state, action) => {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
+      // store the token just received from login
       localStorage.setItem('token', action.payload.token);
+      /**
+       * Spread current state and action dot payload (the token).
+       * Put token in state and then set isAuthenticated.
+       */
       return {
         ...state,
         ...action.payload,
@@ -38,7 +43,7 @@ export default (state, action) => {
         isAuthenticated: false,
         loading: false,
         user: null,
-        error: action.payload
+        error: action.payload // if failed, payload inludes the error msg
       };
     case CLEAR_ERRORS:
       return {

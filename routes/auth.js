@@ -13,7 +13,7 @@ const User = require('../models/User');
 // @access  Private: will need token protection
 router.get('/', auth, async (req, res) => {
   /**
-   * When calling a protected routek, and include second
+   * When calling a protected route, and include second
    * arg 'auth', it calls the auth function in middleware dir.
    *
    * if we send the correct token and are logged in

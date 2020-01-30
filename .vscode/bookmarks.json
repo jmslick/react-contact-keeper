@@ -38,5 +38,15 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$\\client\\src\\components\\auth\\Register.js",
+		"bookmarks": [
+			{
+				"line": 43,
+				"column": 16,
+				"label": ""
+			}
+		]
 	}
 ]

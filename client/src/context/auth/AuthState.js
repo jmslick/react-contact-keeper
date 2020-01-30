@@ -34,7 +34,7 @@ const AuthState = props => {
 
       dispatch({
         type: USER_LOADED,
-        payload: res.data
+        payload: res.data // TOKEN from user.js
       });
     } catch (err) {
       dispatch({ type: AUTH_ERROR });
@@ -51,7 +51,7 @@ const AuthState = props => {
 
     try {
       const res = await axios.post('/api/users', formData, config);
-
+      // the dispach's action param contains payload.token
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
@@ -59,6 +59,7 @@ const AuthState = props => {
 
       loadUser();
     } catch (err) {
+      // user already exists. send the msg from users.js ln 35
       dispatch({
         type: REGISTER_FAIL,
         payload: err.response.data.msg

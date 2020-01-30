@@ -79,3 +79,9 @@ Error: Expected an assignment or function call and instead saw an expression no-
         <h3>{contact.name}</h3>
       ))}
     </Fragment>
+
+---
+
+URI EXTERNALIZATION
+Can set in package.json:
+"proxy": "http://localhost:5000"

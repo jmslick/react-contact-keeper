@@ -13,7 +13,7 @@ const Register = props => {
     if (isAuthenticated) {
       props.history.push('/');
     }
-
+    // normally would use an error id not a string
     if (error === 'User already exists') {
       setAlert(error, 'danger');
       clearErrors();
@@ -39,6 +39,7 @@ const Register = props => {
     } else if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
+      // To reach AuthState.register() must define register in AuthState.js in the  AuthContext.Provider
       register({
         name,
         email,

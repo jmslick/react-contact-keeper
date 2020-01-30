@@ -6,7 +6,7 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 
-// @route    POST api/users
+// @route   POST api/users
 // @desc    register user
 // @access  Public
 router.post(
@@ -37,7 +37,7 @@ router.post(
 
       user = new User({ name, email, password });
 
-      // hash the password
+      // hash the password, set it on user and save user
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
       await user.save();
@@ -49,14 +49,14 @@ router.post(
         }
       };
 
-      // Sign and generae a token
+      // Sign and generae a token, put token in response
       jwt.sign(
         payload,
         config.get('jwtSecret'),
         {
           expiresIn: 36000
         },
-        // callback
+        // NOTE: anon callback responds with the new token
         (err, token) => {
           if (err) throw err;
           res.json({ token });
