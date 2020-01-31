@@ -11,6 +11,7 @@ const Register = props => {
 
   useEffect(() => {
     if (isAuthenticated) {
+      // redirect to home page
       props.history.push('/');
     }
     // normally would use an error id not a string
@@ -18,6 +19,7 @@ const Register = props => {
       setAlert(error, 'danger');
       clearErrors();
     }
+    // if don't provide these args will get warnings
     // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 

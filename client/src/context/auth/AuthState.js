@@ -27,7 +27,13 @@ const AuthState = props => {
 
   // Load User
   const loadUser = async () => {
-    setAuthToken(localStorage.token);
+    /**
+     * Load / delete token from global header so don't have
+     * to keep setting it on axios calls.
+     */
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
 
     try {
       const res = await axios.get('/api/auth');
