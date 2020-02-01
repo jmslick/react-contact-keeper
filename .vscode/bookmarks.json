@@ -48,5 +48,30 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$\\client\\src\\components\\pages\\Home.js",
+		"bookmarks": [
+			{
+				"line": 10,
+				"column": 30,
+				"label": ""
+			},
+			{
+				"line": 19,
+				"column": 1,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$\\client\\src\\context\\auth\\AuthState.js",
+		"bookmarks": [
+			{
+				"line": 28,
+				"column": 2,
+				"label": ""
+			}
+		]
 	}
 ]
