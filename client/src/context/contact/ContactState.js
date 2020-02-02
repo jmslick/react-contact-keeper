@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import uuid from 'uuid/v4';
+import axios from 'axios';
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
 
@@ -18,39 +19,38 @@ import {
 
 const ContactState = props => {
   const initialState = {
-    contacts: [
-      {
-        id: 1,
-        name: 'Willy Makeit',
-        email: 'willymakeit@gmail.com',
-        phone: '111-111-1111',
-        type: 'personal'
-      },
-      {
-        id: 2,
-        name: 'Betty Wont',
-        email: 'bettywont@gmail.com',
-        phone: '111-111-2222',
-        type: 'professional'
-      },
-      {
-        id: 3,
-        name: 'Victor Analysis',
-        email: 'victor@gmail.com',
-        phone: '111-111-3333',
-        type: 'professional'
-      }
-    ],
+    contacts: [],
     current: null,
-    filtered: null
+    filtered: null,
+    error: null
   };
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   // Add Contact
-  const addContact = contact => {
-    contact.id = uuid();
-    dispatch({ type: ADD_CONTACT, payload: contact });
+  const addContact = async contact => {
+    const config = {
+      headers: { 'Content-type': 'application/json' }
+    };
+
+    try {
+      /**
+       * Don't need to send token here because it is set
+       *     in the axios header by setAuthToken.js, if token exists.
+       */
+      const res = await axios.post('/api/contacts', contact, config);
+
+      // new contact is in res.data
+      dispatch({
+        type: ADD_CONTACT,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
 
   // Delete Contact
@@ -93,6 +93,7 @@ const ContactState = props => {
         contacts: state.contacts,
         current: state.current,
         filtered: state.filtered,
+        error: state.error,
         addContact,
         deleteContact,
         updateContact,

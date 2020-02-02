@@ -19,17 +19,21 @@ const Contacts = () => {
 
   return (
     // passing specific contact item as a prop
+    /**
+     * When using mongo records, change key={contact.id} to contact._id
+     * because mongo enties use _id.
+     */
     <Fragment>
       <TransitionGroup>
         {filtered !== null
           ? filtered.map(contact => (
               // fade effect
-              <CSSTransition key={contact.id} timeout={500} classNames='item'>
+              <CSSTransition key={contact._id} timeout={500} classNames='item'>
                 <ContactItem contact={contact} />
               </CSSTransition>
             ))
           : contacts.map(contact => (
-              <CSSTransition key={contact.id} timeout={500} classNames='item'>
+              <CSSTransition key={contact._id} timeout={500} classNames='item'>
                 <ContactItem contact={contact} />
               </CSSTransition>
             ))}
