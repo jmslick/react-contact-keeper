@@ -13,7 +13,7 @@
 		"path": "$ROOTPATH$\\client\\src\\context\\contact\\ContactState.js",
 		"bookmarks": [
 			{
-				"line": 30,
+				"line": 48,
 				"column": 39,
 				"label": ""
 			}
@@ -70,6 +70,21 @@
 			{
 				"line": 28,
 				"column": 2,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$\\client\\src\\components\\contacts\\Contacts.js",
+		"bookmarks": [
+			{
+				"line": 17,
+				"column": 18,
+				"label": ""
+			},
+			{
+				"line": 21,
+				"column": 61,
 				"label": ""
 			}
 		]
