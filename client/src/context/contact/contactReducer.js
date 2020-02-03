@@ -20,6 +20,8 @@ export default (state, action) => {
         loading: false
       };
     case ADD_CONTACT:
+      // Returning action.payload first will put
+      // the new contact at first place in list.
       return {
         ...state,
         contacts: [action.payload, ...state.contacts],
@@ -36,9 +38,10 @@ export default (state, action) => {
     case DELETE_CONTACT:
       return {
         // return current state object with contacts minus the one to delete
+        // _id for mongo
         ...state,
         contacts: state.contacts.filter(
-          contact => contact.id !== action.payload
+          contact => contact._id !== action.payload
         ),
         loading: false
       };

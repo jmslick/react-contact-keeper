@@ -5,11 +5,11 @@ import ContactContext from '../../context/contact/contactContext';
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext; // pull in actions
-  const { id, name, email, phone, type } = contact;
+  const { _id, name, email, phone, type } = contact;
 
   const onDelete = () => {
-    //  id is in contact, passed in props
-    deleteContact(id); // function in ContactState.js
+    //  _id is mongo _id in contact, passed in props
+    deleteContact(_id); // function in ContactState.js
     clearCurrent();
   };
 
