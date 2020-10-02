@@ -1,0 +1,87 @@
+dependencies:
+nodemon, concurrently express, express-validator, jsonwebtoken,
+mongoose, bcrypt
+
+---
+
+RUN server:
+
+> node server.js (would work, but not start nodemon, so have to keep restarting after save)
+> npm run server (will run it with nodemon enabled.)
+
+    Server.js: the entry point to back end.
+
+
+
+RUN front and back:
+
+> npm run dev
+> dev is defined in contact-keeper/package.json:
+
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
+---
+
+MONGO
+postadvisor@gmail.com / #Bgiabh1
+
+---
+
+TOKEN
+jsonwebtoken 44  
+to generate a token, have to sign it.
+jwt.sign(payload, config.get('jwtSecret'), options, callback);
+jwtSecret is defined in comfig/default.json:
+"jwtSecret": "secret"
+The callback should contain the token which
+you then put into the response.
+
+jwt.sign(
+payload,
+config.get('jwtSecret'),
+{
+expiresIn: 360000
+},
+(err, token) => {
+if (err) throw err;
+res.json({ token });
+}
+);
+
+TOKEN: STORE LOCALLY
+case LOGIN_SUCCESS:
+localStorage.setItem('token', action.payload.token);
+
+---
+
+COLLECTION
+USERS
+"name": "bill bob",
+"email": "billbob@gmail.com",
+"password": "123456"
+
+    token:
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWUyYjdhODhiOWNkODM2OGRjNjZiOGIzIn0sImlhdCI6MTU3OTkwNzcyMCwiZXhwIjoxNTc5OTQzNzIwfQ.p8QhktwKrImPIzireKVi-CrW6rgmze8X1ljw2A_i_0U
+
+STUPID JS CRAP
+Bug when defining lambda:
+Error: Expected an assignment or function call and instead saw an expression no-unused-expressions
+
+   <Fragment>
+      {contacts.map(contact => { // cause: {} not ()
+        <h3>{contact.name}</h3>;  // {} causes auto ; insert
+      })}
+    </Fragment>
+
+    Correct:
+    <Fragment>
+      {contacts.map(contact => (
+        <h3>{contact.name}</h3>
+      ))}
+    </Fragment>
+
+---
+
+URI EXTERNALIZATION
+Can set in package.json:
+"proxy": "http://localhost:5000"
